@@ -18,7 +18,12 @@
           <p class="brand-subtitle">六角恐龍機器人 官方網站</p>
         </div>
       </div>
-      <nav class="site-nav">
+      <button class="nav-toggle" aria-label="開啟導覽選單" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="主導覽">
         <a href="#about">關於</a>
         <a href="#features">功能</a>
         <a href="#commands">指令</a>
@@ -210,5 +215,14 @@
       </div>
     </footer>
   </div>
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+    navToggle?.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      siteNav.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
